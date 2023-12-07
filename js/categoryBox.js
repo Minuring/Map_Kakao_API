@@ -1,7 +1,7 @@
 // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
 var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}), 
     contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다 
-    markers = [], // 마커를 담을 배열입니다
+    markers_cat = [], // 마커를 담을 배열입니다
     currCategory = ''; // 현재 선택된 카테고리를 가지고 있을 변수입니다
 
 // 장소 검색 객체를 생성합니다
@@ -56,10 +56,11 @@ function placesSearchCB_cat(data, status, pagination) {
         displayPlaces_cat(data);
     } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
         // 검색결과가 없는경우 해야할 처리가 있다면 이곳에 작성해 주세요
+        alert("검색결과가 없음");
 
     } else if (status === kakao.maps.services.Status.ERROR) {
         // 에러로 인해 검색결과가 나오지 않은 경우 해야할 처리가 있다면 이곳에 작성해 주세요
-        
+        alert("검색 에러");
     }
 }
 
@@ -103,17 +104,17 @@ function addMarker_cat(position, order) {
         });
 
     marker.setMap(map); // 지도 위에 마커를 표출합니다
-    markers.push(marker);  // 배열에 생성된 마커를 추가합니다
+    markers_cat.push(marker);  // 배열에 생성된 마커를 추가합니다
 
     return marker;
 }
 
 // 지도 위에 표시되고 있는 마커를 모두 제거합니다
 function removeMarker_cat() {
-    for ( var i = 0; i < markers.length; i++ ) {
-        markers[i].setMap(null);
+    for ( var i = 0; i < markers_cat.length; i++ ) {
+        markers_cat[i].setMap(null);
     }   
-    markers = [];
+    markers_cat = [];
 }
 
 // 클릭한 마커에 대한 장소 상세정보를 커스텀 오버레이로 표시하는 함수입니다
