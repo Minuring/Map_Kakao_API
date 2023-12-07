@@ -1,3 +1,9 @@
+//마커를 미리 생성 <<<<<<<<<<<<<<<
+var marker = new kakao.maps.Marker({
+    position: new kakao.maps.LatLng(3, 127.005476),
+    map: map
+    });
+    
 function sample5_execDaumPostcode() {
     new daum.Postcode({
         oncomplete: function(data) {
@@ -15,7 +21,7 @@ function sample5_execDaumPostcode() {
                     // 해당 주소에 대한 좌표를 받아서
                     var coords = new daum.maps.LatLng(result.y, result.x);
                     // 지도를 보여준다.
-                    mapContainer.style.display = "inline-block";
+                    
                     map.relayout();
                     // 지도 중심을 변경한다.
                     map.setCenter(coords);

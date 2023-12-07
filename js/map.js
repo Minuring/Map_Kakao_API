@@ -12,13 +12,6 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 //주소-좌표 변환 객체를 생성
 var geocoder = new kakao.maps.services.Geocoder();
 
-//마커를 미리 생성 <<<<<<<<<<<<<<<
-
-var marker = new kakao.maps.Marker({
-position: new kakao.maps.LatLng(3, 127.005476),
-map: map
-});
-
 // 지도 타입 변경 컨트롤을 생성한다
 var mapTypeControl = new kakao.maps.MapTypeControl();
 
